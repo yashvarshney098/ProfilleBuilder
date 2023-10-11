@@ -1,0 +1,152 @@
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face {
+    font-family: termina;
+    src: url(../media/fonts/TerminaTest-Black.otf);
+}
+
+body{
+    
+font-family: termina;
+    font-size: 16px;
+    // line-height: 1.7;
+    color: #000000;
+    // background-color: #000;
+}
+
+.wrapper{
+    // display: none;
+    .profileimg{
+        width: 250px;
+        height: 230px;
+        border: 5px solid #008445;
+        outline: 5px solid rgb(6, 6, 6);
+        
+    }
+}
+
+.container{
+    max-width: 600px;
+    margin: 3rem auto 0rem auto;
+    overflow: hidden;
+    padding: 0 30px;
+    font-weight: bold;
+}
+
+.btns-div{
+    display: flex;
+    justify-content: space-around;
+    a{
+        font-size: 0.8rem;
+    }
+}
+
+.spans{
+    color: #008445;
+    font-size: 1.6rem;
+    font-weight: 900;
+    color:#008445;    
+text-shadow: 1px 0 #008445;
+letter-spacing:1px;
+font-weight:900;
+}
+
+
+
+.container { 
+    // border-collapse:separate;
+    width: 100%;
+    margin: 1rem auto;
+  .inner-table1{
+    border-collapse: separate;
+    width: 100%;
+    padding: 0 50px 0 50px;
+   
+   
+}
+.inner-table2{
+    // border-collapse: separate;
+    margin: 1.2rem auto;
+    width: 50%; 
+    padding: 3rem;
+    .left{ 
+        border-right: 3px solid #008445;
+        padding: 40px;
+    }
+    .bottom{
+        
+        border-bottom: 3px solid #008445;
+        padding: 40px;
+    }
+}
+// .inner-table2::after{
+//     content: '';
+//     position: absolute;
+//     top: 82%;
+//     left: 33.5%;
+//     width: 30px;
+//     height: 30px;
+//     background-image: url('https://img.freepik.com/free-vector/red-heartbeat-symbol-graphic-illustration_53876-8061.jpg?w=2000');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     transform: translate(-50%, -50%);
+//     border-top: inherit;
+//     border-top-color: transparent;
+// }
+.inner-table3{
+    // border-collapse: separate;
+    margin: 1.2rem auto;
+    width: 50%; 
+    padding: 3rem;
+    .left{ 
+        border-right: 3px solid #008445;
+        padding: 40px;
+    }
+    .bottom{
+        
+        border-bottom: 3px solid #008445;
+        padding: 40px;
+    }
+}
+// .inner-table3::after{
+//     content: '';
+//     position: fixed;
+//     top: 82%;
+//     left: 63%;
+//     width: 30px;
+//     height: 30px;
+//     background-image: url('https://img.freepik.com/free-vector/red-heartbeat-symbol-graphic-illustration_53876-8061.jpg?w=2000');
+//     background-size: cover;
+//     background-repeat: no-repeat;
+//     transform: translate(-50%, -50%);
+//     border-top: inherit;
+//     border-top-color: transparent;
+// }
+
+.inner-table4{
+    table,td,th{
+    border: 3px solid #008445;
+    padding: 1.2rem 4.5rem; 
+    }
+    margin: 1.2rem auto;
+    border-collapse: collapse;
+}
+
+.schedule{
+    
+    // width: 100px;
+	// height: 60px;
+	// transform: skew(-30deg);
+	// // background: rgb(9, 189, 212);
+    margin: 0rem;
+    padding: 0;
+    border: 2px solid #067d06;
+}
+
+}
+

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register Here!</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/js/intlTelInput.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.12/css/intlTelInput.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href=
+    "https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" 
+              rel="stylesheet" 
+              type="text/css" />
+        <link rel="stylesheet" 
+              href=
+    "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    
+    <script src="https://code.jquery.com/jquery-3.7.0.js" integrity="sha256-JlqSTELeR4TLqP0OG9dxM7yDPqX1ox/HfgiSLBj8+kM=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href=" {% static 'css/reg_styles.css'  %}">
+    <style>
+      input:focus + label {
+        color: #008445;
+      }
+      .form-control:focus {
+          border-color: #008445;
+          box-shadow: 0 0 0 0.2rem rgba(0, 132, 69, 0.25);
+      }
+   label{
+    font-size: 12px;
+    font-weight: lighter;
+    color: #7a7a7a;
+   }
+   label:active{
+    color: #008445 !important;
+   } 
+   label::after{
+    color: #008445 !important;
+   }
+
+    </style>
+</head>
+<body>
+  <div id="svg_wrap"></div>
+
+  <h1>Athlete Profile</h1> 
+<form action="/register" method="POST" enctype="multipart/form-data">
+    {% csrf_token %}
+ <section style="box-sizing:content-box;" class="">
+   <p>Personal information</p>
+   <div class="form-floating mb-3">
+    <input type="email" name="username" style="padding: 3rem 1rem 1.5rem 1rem;" class="form-control" id="email" placeholder="name@example.com" required>
+    <label for="floatingInput">Email address <p class="text-danger d-inline">*</p> </label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="firstname" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="firstname" placeholder="firstname" required>
+    <label for="firstname">First Name <p class="text-danger d-inline">*</p></label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="lastname" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="lastname" placeholder="lastname" required>
+    <label for="floatinglastname">Last Name <p class="text-danger d-inline">*</p></label>
+  </div>
+  <div class="form-floating">
+    <input type="password" name="password" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="password" placeholder="Password" required>
+    <label for="floatinglastname">Password <p class="text-danger d-inline">*</p></label>
+  </div>
+  <div class="form-floating">
+    <input type="number" name="gradyear" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="gradyear" placeholder="gradyear" required>
+    <label for="gradyear">Grad Year <p class="text-danger d-inline">*</p></label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="posprimary" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="positionprimary" placeholder="positionprimary" required>
+    <label for="positionprimary">Position Primary <p class="text-danger d-inline">*</p></label>
+  </div>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="possecondary" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="positionsecondary" placeholder="positionsecondary">
+    <label for="positionsecondary">Position Secondary </label>
+  </div>
+  <div class="form-floating">
+    <input type="text" class="form-control" name="twitter" style="padding: 3rem 1rem 1.5rem 1rem;" id="twitter" placeholder="twitter">
+    <label for="twitter">Twitter -https://twitter.com/active_athletes</label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="instagram" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="instagram" placeholder="instagram">
+    <label for="instagram"> Instagram -https://instagram.com/proactiveathletes </label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="facebook" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="Facebook" placeholder="Facebook">
+    <label for="Facebook"> Facebook -https://facebook.com/proactiveathletes </label>
+  </div>
+  <div class="form-floating">
+    <input type="text"  name="school" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="school" placeholder="school" required>
+    <label for="school">School <p class="text-danger d-inline">*</p></label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="city"  class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="city" placeholder="city" required>
+    <label for="city">City <p class="text-danger d-inline">*</p></label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="state" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="state" placeholder="state" required>
+    <label for="state">State <p class="text-danger d-inline">*</p></label>
+  </div>
+  <div class="form-floating">
+    <input type="text" name="ncaa" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="ncaa" placeholder="ncaa">
+    <label for="ncaa">NCAA Number</label>
+  </div>
+  
+  {% comment %} <div class="form-floating">
+    <label style="display: inline-block;margin-top:1.3rem">DOB</label>
+  <div class="form-floating" style="display: inline-block;width:84%;margin:1.5rem 0rem 1rem 3rem;">
+    
+        <div id="datepicker" 
+             class="input-group date"             
+             data-date-format="mm-dd-yyyy">
+            <input class="form-control" style="margin:0rem;"
+                 name="dob"  type="text" readonly />
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar" style="height: 0rem"></i>
+            </span>
+        </div>
+  </div>
+</div> {% endcomment %}
+  
+<label for="" style="display: inline-block;">phone<p class="text-danger d-inline">*</p></label>
+  <div class="form-floating"  style="display: inline-block;">
+    <input type="tel" name="phone" class="form-control"  id="phone" placeholder="" required>
+  </div>
+  <div class="form-group">
+    <label for="profileimage">Profile Image <p class="text-danger d-inline">*</p></label>
+    <div class="mb-3">
+        <input class="form-control" name="profileimage" required type="file" id="formFile">
+      </div>
+</div>
+ </section>
+ 
+ <section style="padding: 3rem;">
+   <p>Physical</p>
+   <div class="form-floating">
+    <input type="text" name="height" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="height" placeholder="height" required>
+    <label for="height">Height (EXAMPLE) 6’2”<p class="text-danger d-inline">*</p></label>
+  </div>
+  
+   <div class="form-floating">
+    <input type="number" name="weight" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="weight" placeholder="weight" required>
+    <label for="weight">Weight (EXAMPLE) 210 <p class="text-danger d-inline">*</p></label>
+  </div>
+  
+   <div class="form-floating">
+    <input type="text" name="vertical" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="vertical" placeholder="vertical">
+    <label for="vertical">Vertical</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="40time" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="40time" placeholder="40time">
+    <label for="40time">40 Time</label>
+  </div>
+  
+ </section>
+ 
+ <section style="padding: 3rem;">
+   <p>Academics</p>
+   <div class="form-floating">
+    <input type="text" name="gpa" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="gpa" placeholder="gpa">
+    <label for="gpa">GPA (EXAMPLE) 4.0</label>
+  </div>
+   <div class="form-floating">
+    <input type="number" name="classrank" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="classrank" placeholder="classrank">
+    <label for="classrank">Class Rank</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="actscore" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="actscore" placeholder="actscore">
+    <label for="actscore">ACT Score</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="satscore" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="satscore" placeholder="satscore">
+    <label for="satscore">SAT Score</label>
+  </div>
+ </section>
+ <section style="padding: 3rem;">
+   <p>Highlights #1</p>
+   <div class="form-floating">
+    <input type="text" name="url1" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="url" placeholder="url">
+    <label for="url">Paste your Hudl or YouTube url here.</label>
+  </div>
+  <p>Highlights #2</p>
+   <div class="form-floating">
+    <input type="text" name="url2" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="url" placeholder="url">
+    <label for="url">Paste your Hudl or YouTube url here.</label>
+  </div>
+ </section>
+ <section style="padding: 3rem;">
+   <p>Statistics</p>
+   <div class="form-floating">
+    <input type="text"  name="sbp1"  class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">Bullet Point #1</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="sbp2" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">Bullet Point #2</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="sbp3" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">Bullet Point #3</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="sbp4" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">Bullet Point #4</label>
+  </div>
+   <p>Awards</p>
+   <div class="form-floating">
+    <input type="text"  name="abp1" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">(EXAMPLE) ALL-County </label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="abp2"  class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">(EXAMPLE) ALL-County </label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="abp3"  class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">(EXAMPLE) ALL-County </label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="abp4"  class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="bulletpoint" placeholder="bulletpoint">
+    <label for="bulletpoint">(EXAMPLE) ALL-County </label>
+  </div>
+ </section>
+ <section style="padding: 3rem;">
+   <p>Event 1</p>
+   <div class="form-floating">
+    <label style="display: inline-block;margin-top:1.3rem">Date </label>
+  <div class="form-floating" style="display: inline-block;width:83%;margin:1.5rem 0rem 1rem 4rem;">
+    
+        <div id="datepicker2"  
+             class="input-group date"             
+             data-date-format="mm-dd-yyyy">
+            <input class="form-control" style="margin:0rem;"  name="s1date"
+                   type="text" readonly />
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar" style="height: 0rem"></i>
+            </span>
+        </div>
+  </div>
+</div>
+   <div class="form-floating">
+    <input type="text" name="s1location" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="location" placeholder="location">
+    <label for="location">Location (EXAMPLE) Maryland Univ.</label>
+  </div>
+   <div class="form-floating">
+    <input type="text"  name="s1event" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="event" placeholder="event">
+    <label for="event">Event (EXAMPLE) Combine / Game etc.</label>
+  </div>
+  <p>Event 2</p>
+   <div class="form-floating">
+    <label style="display: inline-block;margin-top:1.3rem">Date </label>
+  <div class="form-floating" style="display: inline-block;width:83%;margin:1.5rem 0rem 1rem 4rem;">
+    
+        <div id="datepicker3" 
+             class="input-group date"             
+             data-date-format="mm-dd-yyyy">
+            <input class="form-control" style="margin:0rem;" name="s2date"
+                   type="text" readonly />
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar" style="height: 0rem"></i>
+            </span>
+        </div>
+  </div>
+</div>
+   <div class="form-floating">
+    <input type="text" name="s2location"  class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="location" placeholder="location">
+    <label for="location">Location (EXAMPLE) Maryland Univ.</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="s2event" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="event" placeholder="event">
+    <label for="event">Event (EXAMPLE) Combine / Game etc.</label>
+  </div>
+  <p>Event 3</p>
+   <div class="form-floating">
+    <label style="display: inline-block;margin-top:1.3rem">Date </label>
+  <div class="form-floating" style="display: inline-block;width:83%;margin:1.5rem 0rem 1rem 4rem;">
+    
+        <div id="datepicker4" 
+             class="input-group date"             
+             data-date-format="mm-dd-yyyy">
+            <input class="form-control" style="margin:0rem;" name="s3date"
+                   type="text" readonly />
+            <span class="input-group-addon">
+                <i class="glyphicon glyphicon-calendar" style="height: 0rem"></i>
+            </span>
+        </div>
+  </div>
+</div>
+   <div class="form-floating">
+    <input type="text"  name="s3location" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="location" placeholder="location">
+    <label for="location">Location (EXAMPLE) Maryland Univ.</label>
+  </div>
+   <div class="form-floating">
+    <input type="text" name="s3event" class="form-control" style="padding: 3rem 1rem 1.5rem 1rem;" id="event" placeholder="event">
+    <label for="event">Event (EXAMPLE) Combine / Game etc.</label>
+  </div>
+ </section>
+ 
+ <section style="padding: 3rem;">
+   <p>Coach Message</p>
+   <div class="form-floating">
+   <textarea placeholder="Write your message here..." name="coachmessage" id="coach" cols="30" rows="10" ></textarea>
+   </div> 
+ </section>
+ 
+   <div class="button" id="prev">&larr; Previous</div>
+ <div class="button" id="next" onclick="">Next &rarr;</div>
+<input type="submit" id="submit" class="button text-center" value="Create Profile" style="width:15rem">
+
+</form>
+
+ <script src="{% static 'js/app.js' %}"></script>
+ 
+ 
+ <script src=
+ "https://code.jquery.com/jquery-3.6.1.min.js" 
+         integrity=
+ "sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" 
+         crossorigin="anonymous">
+     </script>
+       
+     <script>
+         $(function () {
+             $("#datepicker").datepicker({ 
+                 autoclose: true, 
+                 todayHighlight: true,
+                 todayBtn : "linked",
+                 title : "Your DOB"
+             }).datepicker('update', new Date());
+         });
+         $(function () {
+             $("#datepicker2").datepicker({ 
+                 autoclose: true, 
+                 todayHighlight: true,
+                 todayBtn : "linked",
+                 title : "Your DOB"
+             }).datepicker('update', new Date());
+         });
+         $(function () {
+             $("#datepicker3").datepicker({ 
+                 autoclose: true, 
+                 todayHighlight: true,
+                 todayBtn : "linked",
+                 title : "Your DOB"
+             }).datepicker('update', new Date());
+         });
+         $(function () {
+             $("#datepicker4").datepicker({ 
+                 autoclose: true, 
+                 todayHighlight: true,
+                 todayBtn : "linked",
+                 title : "Your DOB"
+             }).datepicker('update', new Date());
+         });
+
+         $(document).ready(function() {
+          var phoneInputID = "#phone";
+          var input = document.querySelector(phoneInputID);
+          var iti = window.intlTelInput(input, {
+            // allowDropdown: false,
+            // autoHideDialCode: false,
+            // autoPlaceholder: "off",
+            // dropdownContainer: document.body,
+            // excludeCountries: ["us"],
+            formatOnDisplay: true,
+            // geoIpLookup: function(callback) {
+            //   $.get("http://ipinfo.io", function() {}, "jsonp").always(function(resp) {
+            //     var countryCode = (resp && resp.country) ? resp.country : "";
+            //     callback(countryCode);
+            //   });
+            // },
+            hiddenInput: "full_number",
+            // initialCountry: "auto",
+            // localizedCountries: { 'de': 'Deutschland' },
+            // nationalMode: false,
+            // onlyCountries: ['us', 'gb', 'ch', 'ca', 'do'],
+            // placeholderNumberType: "MOBILE",
+            preferredCountries: ['us'],
+            // separateDialCode: true,
+            utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/11.0.14/js/utils.js"
+          });
+        
+        
+          $(phoneInputID).on("countrychange", function(event) {
+        
+            // Get the selected country data to know which country is selected.
+            var selectedCountryData = iti.getSelectedCountryData();
+        
+            // Get an example number for the selected country to use as placeholder.
+            newPlaceholder = intlTelInputUtils.getExampleNumber(selectedCountryData.iso2, true, intlTelInputUtils.numberFormat.INTERNATIONAL),
+        
+              // Reset the phone number input.
+              iti.setNumber("");
+        
+            // Convert placeholder as exploitable mask by replacing all 1-9 numbers with 0s
+            mask = newPlaceholder.replace(/[1-9]/g, "0");
+        
+            // Apply the new mask for the input
+            $(this).mask(mask);
+          });
+        
+        
+          // When the plugin loads for the first time, we have to trigger the "countrychange" event manually, 
+          // but after making sure that the plugin is fully loaded by associating handler to the promise of the 
+          // plugin instance.
+        
+          iti.promise.then(function() {
+            $(phoneInputID).trigger("countrychange");
+          });
+        
+        });
+        function checkValue1() {
+          var email = document.getElementById("email");
+            if(email.value === "") {
+              var att = document.createAttribute("required");
+              email.setAttributeNode(att);
+            }
+          var firstname = document.getElementById("firstname");
+            if(firstname.value === "") {
+              var att = document.createAttribute("required");
+              firstname.setAttributeNode(att);
+            }
+          var lastname = document.getElementById("lastname");
+            if(lastname.value === "") {
+              var att = document.createAttribute("required");
+              lastname.setAttributeNode(att);
+            }
+          var gradyear = document.getElementById("gradyear");
+            if(gradyear.value === "") {
+              var att = document.createAttribute("required");
+              gradyear.setAttributeNode(att);
+            }
+          var positionprimary = document.getElementById("positionprimary");
+            if(positionprimary.value === "") {
+              var att = document.createAttribute("required");
+              positionprimary.setAttributeNode(att);
+            }
+          var school = document.getElementById("school");
+            if(school.value === "") {
+              var att = document.createAttribute("required");
+              school.setAttributeNode(att);
+            }
+          var city = document.getElementById("city");
+            if(city.value === "") {
+              var att = document.createAttribute("required");
+              city.setAttributeNode(att);
+            }
+          var state = document.getElementById("state");
+            if(state.value === "") {
+              var att = document.createAttribute("required");
+              state.setAttributeNode(att);
+            }
+          var phone = document.getElementById("phone");
+            if(phone.value === "") {
+              var att = document.createAttribute("required");
+              phone.setAttributeNode(att);
+            }
+        }
+     </script>
+     <script src=
+ "https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" 
+         integrity=
+ "sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" 
+         crossorigin="anonymous">
+     </script>
+     <script src=
+ "https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" 
+         integrity=
+ "sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" 
+         crossorigin="anonymous">
+     </script>
+     <script src=
+ "https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js">
+     </script>
+</body>
+</html>

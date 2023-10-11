@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    {% load static %}
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Athlete Profile</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@800&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href=" {% static 'css/styles.css'  %}">
+  
+</head>
+  <body>
+    <table class="container" bgcolor="#fff">
+        <tr>
+            <th>
+            <img width="250px" src="{% static 'media/PAA_logo_FNL_2.png' %}" alt="">
+            </th>
+            <th>
+                <div class="btns-div ">
+                    <a class="btn btn-sm text-white" style="background-color: #008445;box-shadow: 2px 2px 3px 3px #9fa39f;" href="https://twitter.com/intent/tweet?url=<YOUR_PAGE_URL>" target="_blank">
+                        <i class="fa fa-twitter" style="color: #ffffff;"></i>
+                        <i class="fa fa-share-alt" style="color: #ffffff;"></i>
+                        Share</a>
+                    <a class="btn btn-sm text-white" style="background-color: #008445;box-shadow: 2px 2px 3px 3px #9fa39f;" href="https://www.instagram.com/share?url=<YOUR_PAGE_URL>" target="_blank">
+                        <i class="fa fa-instagram" style="color: #ffffff;"></i>
+                        <i class="fa fa-share-alt" style="color: #ffffff;"></i>
+                        Share</a>
+                    <a class="btn btn-sm text-white" style="background-color: #008445;box-shadow: 2px 2px 3px 3px #9fa39f;" href="https://www.facebook.com/sharer/sharer.php?u=<YOUR_PAGE_URL>" target="_blank">
+                        <i class="fa fa-facebook" style="color: #ffffff;"></i>
+                        <i class="fa fa-share-alt" style="color: #ffffff;"></i>
+                        Share</a>
+                </div>
+            </th>
+        </tr>
+        <tr>
+               <td class="wrapper">
+                    <!-- <img width="300px" style="margin-top: 2.4rem;" src="{%  static 'media/stripes3.png' %}" alt=""> -->
+                    <center>
+                    <!-- <<div  style="width:250px; height:250px;background:repeating-linear-gradient(
+                        90deg,
+                        #008445 ,
+                        #008445 170px,
+                        #000 170px,
+                        #000 190px);
+                        border-right:20px solid #000;transform: skewX(-10deg);";
+                        > -->
+                        <img class="profileimg" src="{{user.profileimage.url}}"  alt="">
+                  
+                </center>
+                       <!-- <canvas title="download this canvas" width="300"   height="300"  id="canvas">Your browser does not support Canvas.</canvas> -->
+               </td> 
+               <td>
+                <table class="inner-table1">
+                    <tbody >
+                    <tr>
+                        <th colspan="2"> <span class="spans text-bold" style="font-weight: 900;">{{user.gradyear}}</span> WR | ATH</th>
+                    </tr>
+                    <tr>
+                         <td colspan="2"><span class="spans">{{user.firstname}} {{user.lastname}}</span></td>
+                    </tr>
+                    <tr >
+                        <td>{{user.height}}</td>
+                        <td>{{user.weight}}</td>
+                    </tr>
+                    <tr colspan="2">
+                        <td colspan="2">{{user.school}}</td>
+                    </tr>
+                    <tr >
+                        <td>{{user.city}}, {{user.state}}</td>
+                    </tr>
+                    <tr>
+                        <td colspan="2">NCAA ELIGIBILITY # {{user.ncaa}}</td>
+                    </tr>
+                    </tbody>
+                </table>
+               </td>
+        </tr>
+        <!-- <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>Profile</center> 
+            </td>
+        </tr>
+        <tr >
+            <td >
+                <button class="btn text-white" style="background-color: #008445;width:80%;margin:1rem 0;">Athlete Profile</button>
+            </td>
+            <td>
+                <button class="btn text-white" style="background-color: #008445;width:80%;margin:1rem 0;">Twitter Hustle</button>
+            </td>
+        <tr> -->
+        <!-- <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>Access</center> 
+            </td>
+        </tr>
+        <tr >
+            <td >
+                <button class="btn text-white" style="background-color: #008445;width:80%;margin:1rem 0;">Education</button>
+            </td>
+            <td>
+                <button class="btn text-white" style="background-color: #008445;width:80%;margin:1rem 0;">School Search</button>
+            </td>
+        <tr> -->
+        <!-- <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>Reports</center> 
+            </td>
+        </tr>
+        <tr >
+            <td >
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    Live Report 1.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    Live Report 2.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    Live Report 3.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    Live Report 4.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 1rem 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    Live Report 5.0</a>
+            </td>
+            <td>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-signal" style="color: #ffffff;"></i>
+                    Top Open Report 1.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-signal" style="color: #ffffff;"></i>
+                    Top Open Report 2.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-signal" style="color: #ffffff;"></i>
+                    Top Open Report 3.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-signal" style="color: #ffffff;"></i>
+                    Top Open Report 4.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 1rem 0;">
+                    <i class="fa fa-signal" style="color: #ffffff;"></i>
+                    Top Open Report 5.0</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>Tools</center> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            <center>  <button class="btn text-white" style="background-color: #008445;width:80%;margin:1rem 0;">Coach Search</button>
+            </center>  
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>RESOURCES & LEARNING</center> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+            <center>  <button class="btn text-white" style="background-color: #008445;width:80%;margin:1rem 0;">LEARNING MOUDLES</button>
+            </center>  
+        </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>MY REPORTS</center> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2"> <center>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    My Report 1.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 0 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    My Report 2.0</a>
+                <a class="btn btn-sm text-white" style="background-color: #008445;padding:0.4rem;width:80%;margin:1rem 0 1rem 0;">
+                    <i class="fa fa-podcast" style="color: #ffffff;"></i>
+                    My Report 3.0</a>
+                </center>
+            </td>
+        </tr> -->
+        <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>Contact</center> 
+            </td>
+        </tr>
+        <tr style="font-size: 0.8rem;">
+            <td>
+                <img width="30px" style="margin: 1rem 1rem;box-shadow: 2px 2px 5px 3px #9fa39f;" src=" {% static 'media/1.png' %} " alt="Phone icon">
+                {{user.phone}}
+            </td>
+            <td>
+                <img width="30px" style="margin: 1rem 1rem;box-shadow: 2px 2px 5px 3px #9fa39f;" src=" {% static 'media/3.png' %} " alt="Phone icon">
+                {{user.email}}
+            </td>
+        </tr>
+        <tr>
+            <td style="font-size: 0.8rem;">
+                <img width="30px" style="margin: 1rem 1rem;;box-shadow: 2px 2px 5px 3px #9fa39f;" src=" {% static 'media/3.png' %} " alt="Phone icon">
+                {{user.instagram}}
+            </td>
+            <td>
+                <img width="30px" style="margin: 1rem 1rem;;box-shadow: 2px 2px 5px 3px #9fa39f;" src=" {% static 'media/4.png' %} " alt="Phone icon">
+                {{user.twitter}}
+            </td>
+        </tr>
+        <tr>
+            <td style="margin-top:0;" class="text-white" bgcolor="#000">
+             <center>Physical</center> 
+            </td>
+            <td style="margin-top:0;" class="text-white" bgcolor="#000">
+              <center>Academics</center>
+            </td>
+        </tr>
+        <tr > 
+            <td colspan="1" rowspan="2">
+               
+                <table class="inner-table2">
+                    <tr>
+                        <td class="left bottom">HEIGHT <br> <span class="spans" style="font-size: 2rem;">{{user.height}}</span></td>
+                        <td class="bottom">WEIGHT<br><span class="spans" style="font-size: 2rem;"> {{user.weight}}</span></td>
+                    </tr>
+                    <tr>
+                    <td class="left">VERTICAL<br> <span class="spans" style="font-size: 2rem;">{{user.vertical}}</span></td>
+                        <td style="padding: 30px;">40 TIME<br> <span class="spans" style="font-size: 2rem;">{{user.time40}}</span></td>
+                    </tr>
+                </table>
+           
+            </td> 
+        </tr>
+        <tr > 
+            <td colspan="1" >
+               
+                <table class="inner-table3">
+                    <tr>
+                        <td class="left bottom">GPA <br><span class="spans" style="font-size: 2rem;"> {{user.gpa}}</span></td>
+                        <td class="bottom">CLASS<br> <span class="spans" style="font-size: 2rem;">{{user.classrank}}</span></td>
+                    </tr>
+                    <tr>
+                        <td class="left">ACT<br> <span class="spans" style="font-size: 2rem;">{{user.actscore}}</span></td>
+                        <td style="padding: 30px;">SAT<br> <span class="spans" style="font-size: 2rem">{{user.satscore}}</span></td>
+                    </tr>
+                </table>
+           
+            </td>    
+        </tr>
+        <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+               <center>Highlights</center> 
+            </td>
+        </tr>
+        <tr>
+            
+            <td>
+                <center>
+                <h5>Offensive</h5>
+                 <iframe width="350" height="315" src="{{user.url1}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </center>
+            </td>
+        
+            <td>
+                <center>
+                <h5>Defensive</h5>
+                 <iframe width="350" height="315" src="{{user.url2}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe> 
+            </center>
+            </td>
+        </tr>
+        <tr>
+            <td style="margin-top:0;" class="text-white" bgcolor="#000">
+             <center>Statistics</center> 
+            </td>
+            <td style="margin-top:0;" class="text-white" bgcolor="#000">
+              <center>Awards</center>
+            </td>
+        </tr>
+        <tr>
+            
+            <td>
+                <center>
+                <table class="inner-table4" style="width:20rem">
+                    <tr>
+                        <i class="fa fa-bar-chart" style="font-size:35px;color:#008445; margin-top:1rem;box-shadow: 2px 2px 5px 3px #9fa39f;"></i>
+                    </tr>
+                  <tr>
+                    <td> {{user.sbp1}}</td>
+                  </tr>
+                  <tr>
+                    <td> {{user.sbp2}}</td>
+                  </tr>
+                  <tr>
+                    <td> {{user.sbp3}}</td>
+                  </tr>
+                  <tr>
+                    <td> {{user.sbp4}}</td>
+                  </tr>
+                </table>
+            </center>   
+            </td>
+        
+            <td>
+                <center>
+                    <table class="inner-table4" style="width:20rem">
+                        <tr>
+                            <i class="fa fa-trophy" style="font-size:35px;color:#008445;margin-top:1rem;box-shadow: 2px 2px 5px 3px #9fa39f;"></i>
+                        </tr>
+                      <tr>
+                        <td>{{user.abp1}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{user.abp2}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{user.abp3}}</td>
+                      </tr>
+                      <tr>
+                        <td>{{user.abp4}}</td>
+                      </tr>
+                    </table>
+                </center> 
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+                &nbsp;
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="padding: 1rem;">
+              <span class="spans"> HELLO COACH</span>   <br> <br>    
+               {{user.coachmessage}}
+
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="margin-top:0;" class="text-white" bgcolor="#000">
+              <center>  SCHEDULE </center>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <center>
+                    <img width="40px" style="box-shadow: 2px 2px 5px 3px #9fa39f;" class="mt-3" src="{% static 'media/5.png' %}" alt="">
+                </center>
+            </td>
+        </tr>
+        <tr>
+            {% if user.s1event %}
+            <td class="wrapper" style="margin: 0;">
+                <center>
+                <!-- <img width="300px" style="margin-top: 2.4rem;" src="{%  static 'media/stripes3.png' %}" alt=""> -->
+                <div class="schedule d-flex mt-3" style="width:300px;transform: skewX(-10deg);">
+                <div  style="width:200px; height:90px;background:repeating-linear-gradient(
+                    90deg,
+                    #008445 ,
+                    #008445 100px,
+                    #000 100px,
+                    #000 110px);
+                    border-right: 10px solid #000;";
+                    >
+                  <p class="text-white">{{user.s1date}}</p>
+                </div>
+                <p style="width:80%;margin-left:1rem;">{{user.s1location}}
+                    {{user.s1event}}</p>
+            </div>
+        </center>
+                   <!-- <canvas title="download this canvas" width="300"   height="300"  id="canvas">Your browser does not support Canvas.</canvas> -->
+           </td> 
+           {% endif %}
+           {% if user.s2event %}
+            <td class="wrapper" style="margin: 0;">
+                <center>
+                <!-- <img width="300px" style="margin-top: 2.4rem;" src="{%  static 'media/stripes3.png' %}" alt=""> -->
+                <div class="schedule d-flex mt-3" style="width:300px;transform: skewX(-10deg);margin-right:2rem;">
+                <div  style="width:200px; height:90px;background:repeating-linear-gradient(
+                    90deg,
+                    #008445 ,
+                    #008445 100px,
+                    #000 100px,
+                    #000 110px);
+                    border-right: 10px solid #000;";
+                    >
+                  <p class="text-white">{{user.s2date}}</p>
+                </div>
+                <p style="width:80%;margin-left:1rem;">{{user.s2location}}
+                    {{user.s2event}}</p>
+            </div>
+        </center>
+                   <!-- <canvas title="download this canvas" width="300"   height="300"  id="canvas">Your browser does not support Canvas.</canvas> -->
+           </td>
+           {% endif %}
+        </tr>
+        <tr>
+          
+           {% if user.s3event %}
+            <td class="wrapper" style="margin: 0;">
+                <center>
+                <!-- <img width="300px" style="margin-top: 2.4rem;" src="{%  static 'media/stripes3.png' %}" alt=""> -->
+                <div class="schedule d-flex mt-3" style="width:300px;transform: skewX(-10deg);margin-right:4rem;">
+                <div  style="width:200px; height:90px;background:repeating-linear-gradient(
+                    90deg,
+                    #008445 ,
+                    #008445 100px,
+                    #000 100px,
+                    #000 110px);
+                    border-right: 10px solid #000;";
+                    >
+                  <p class="text-white">{{user.s3date}}</p>
+                </div>
+                <p style="width:80%;margin-left:1rem;">{{user.s3location}}
+                    {{user.s3event}}</p>
+            </div>
+        </center>
+                   <!-- <canvas title="download this canvas" width="300"   height="300"  id="canvas">Your browser does not support Canvas.</canvas> -->
+           </td>
+           {% endif %}
+        </tr>
+    </table>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  </body>
+</html>

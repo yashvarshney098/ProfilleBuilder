@@ -1,0 +1,345 @@
+{% extends 'app/base.html' %}
+{% load static %}
+<style>
+    .username-head {
+        text-transform: capitalize;
+    }
+</style>
+<h3>Edit Profile</h3>
+{% comment %} 
+{% block breadcrum %} 
+<li class="breadcrumb-item">
+    <a href="{% url 'Home' %}">
+        <i class="fa-solid fa-house"></i>
+    </a>
+</li>
+
+<li class="breadcrumb-item">
+    <a href="{% url 'profile' %}">
+        <i class="fa fa-user"></i>
+    </a>
+</li>
+
+<li class="breadcrumb-item">
+  <a href="{% url 'edit_profile' %}">Edit Profile</a>
+</li> {% endcomment %}
+
+{% comment %} {% endblock %} {% endcomment %}
+
+
+{% block content %}
+
+<div class="container mx-auto">
+
+    {% if message %}
+    <div class="container-fluid p-0 m-0">
+      <div class="alert-danger alert alert-dismissible m-0 text-center" role="alert" >
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="True">&times;</span>
+        </button>
+         {{ message }}!
+      </div>
+    </div>
+    <script type="text/javascript">
+        setTimeout(function () {
+          $('.alert').alert('close');
+        }, 4000);
+      </script>
+    
+    {% endif %}
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card mb-4">
+                <div class="card-body text-center">
+                    <h5 class="username-head my-2">{{ user.firstname }}</h5>
+                    <div class="row">
+
+                        <div class="col-md-12 d-flex justify-content-center">
+                            <div class="row">
+
+                                <div class="col-md-12 mb-3">
+                                    <a href="{% url 'changepassword' %}"><button type="button" class="btn btn-dark  btn-block">Change
+                                            Password</button></a>
+                                </div>
+                                {% comment %} <div class="col-md-12 mb-3">
+                                    <a href="{% url 'change_phone' %}"><button type="button" class="btn btn-info btn-lg btn-block">Change Mobile No.</button></a>
+                                </div> {% endcomment %}
+                                {% comment %} <div class="col-md-12">
+                                    <a href="{% url 'change_email' %}"><button type="button" class="btn btn-info btn-lg btn-block">Change
+                                    Email</button></a>
+                                </div> {% endcomment %}
+                            </div>
+                        </div>
+
+                    </div>
+                        <div class="d-flex justify-content-center mb-2">
+                            
+                        </div>
+                        <div class="d-flex justify-content-center mb-2">
+                            
+                        </div>
+                    
+                </div>
+            </div>
+        </div>
+        
+
+        <div class="card shadow col-lg-12">
+            <form action="" method="post" novalidate  enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="form-group row my-3">
+                    <label for="name" class="col-sm-2 col-form-label">First Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="firstname" id="name" value="{{ user.firstname }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="name" class="col-sm-2 col-form-label">Last Name</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="lastname" id="name" value="{{ user.lastname }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="profileimage" class="col-sm-2 col-form-label">Profile Image</label>
+                    <div class="col-sm-10">
+                        <input type="file" class="form-control" name="profileimage" id="profileimage" value="{{ user.profileimage }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="phone" class="col-sm-2 col-form-label">Phone</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="phone" id="phone" value="{{ user.phone }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="email" class="col-sm-2 col-form-label">Email</label>
+                    <div class="col-sm-10">
+                        <input type="email" class="form-control" name="username" id="email" value="{{ user.username }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="gradyear" class="col-sm-2 col-form-label">Grad Year</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="gradyear" id="gradyear" value="{{ user.gradyear }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="posprimary" class="col-sm-2 col-form-label">Position Primary</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="posprimary" id="posprimary" value="{{ user.posprimary }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="possecondary" class="col-sm-2 col-form-label">Position Secondary</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="possecondary" id="possecondary" value="{{ user.possecondary }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="instagram" class="col-sm-2 col-form-label">Instagram</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="instagram" id="instagram" value="{{ user.instagram }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="twitter" class="col-sm-2 col-form-label">Twitter</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="twitter" id="twitter" value="{{ user.twitter }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="facebook" class="col-sm-2 col-form-label">Facebook</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="facebook" id="facebook" value="{{ user.facebook }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="school" class="col-sm-2 col-form-label">School</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="school" id="school" value="{{ user.school }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="city" class="col-sm-2 col-form-label">City</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="city" id="city" value="{{ user.city }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="state" class="col-sm-2 col-form-label">State</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="state" id="state" value="{{ user.state }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="ncaa" class="col-sm-2 col-form-label">NCAA</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="ncaa" id="ncaa" value="{{ user.ncaa }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="weight" class="col-sm-2 col-form-label">Weight</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="weight" id="weight" value="{{ user.weight }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="height" class="col-sm-2 col-form-label">Height</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="height" id="height" value="{{ user.height }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="vertical" class="col-sm-2 col-form-label">Vertical</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="vertical" id="vertical" value="{{ user.vertical }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="time40" class="col-sm-2 col-form-label">Time 40</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="time40" id="time40" value="{{ user.time40 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="gpa" class="col-sm-2 col-form-label">GPA</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="gpa" id="gpa" value="{{ user.gpa }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="actscore" class="col-sm-2 col-form-label">ACT Score</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="actscore" id="actscore" value="{{ user.actscore }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="satscore" class="col-sm-2 col-form-label">SAT Score</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="satscore" id="satscore" value="{{ user.satscore }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="classrank" class="col-sm-2 col-form-label">Class Rank</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="classrank" id="classrank" value="{{ user.classrank }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="url1" class="col-sm-2 col-form-label">Highlights URL1</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="url1" id="url1" value="{{ user.url1 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="url2" class="col-sm-2 col-form-label">Highlights URL2</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="url2" id="url2" value="{{ user.url2 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="sbp1" class="col-sm-2 col-form-label">Statistics Point1</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="sbp1" id="sbp1" value="{{ user.sbp1 }}">
+                    </div>
+                </div>
+                
+                <div class="form-group row my-3">
+                    <label for="sbp2" class="col-sm-2 col-form-label">Statistics Point2</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="sbp2" id="sbp2" value="{{ user.sbp2 }}">
+                    </div>
+                </div>
+                
+                <div class="form-group row my-3">
+                    <label for="sbp3" class="col-sm-2 col-form-label">Statistics Point3</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="sbp3" id="sbp3" value="{{ user.sbp3 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="sbp4" class="col-sm-2 col-form-label">Statistics Point4</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="sbp4" id="sbp4" value="{{ user.sbp4 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="abp1" class="col-sm-2 col-form-label">Awards Point1</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="abp1" id="abp1" value="{{ user.abp1 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="abp2" class="col-sm-2 col-form-label">Awards Point2</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="abp2" id="abp2" value="{{ user.abp2 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="abp3" class="col-sm-2 col-form-label">Awards Point3</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="abp3" id="abp3" value="{{ user.abp3 }}">
+                    </div>
+                </div>
+                <div class="form-group row my-3">
+                    <label for="abp4" class="col-sm-2 col-form-label">Awards Point4</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="abp4" id="abp4" value="{{ user.abp4 }}">
+                    </div>
+                </div>
+
+                <h4>Coach Message</h4>
+                <div class="container">
+                    <input type="text" class="form-control" name="coachmessage" id="coachmessage" value="{{ user.coachmessage }}">
+                  
+                </div>
+                  <h4>SCHEDULE</h4>
+                <div class="container">
+                  <table class="table">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Date</th>
+                        <th scope="col">Event</th>
+                        <th scope="col">Location</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td><input type="text" class="form-control" name="s1date" id="s1date" value="{{ user.s1date }}"></td>
+                        <td><input type="text" class="form-control" name="s1event" id="s1event" value="{{ user.s1event }}"></td>
+                        <td><input type="text" class="form-control" name="s1location" id="s1location" value="{{ user.s1location }}"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">2</th>
+                        <td><input type="text" class="form-control" name="s2date" id="s2date" value="{{ user.s2date }}"></td>
+                        <td><input type="text" class="form-control" name="s2event" id="s2event" value="{{ user.s2event }}"></td>
+                        <td><input type="text" class="form-control" name="s2location" id="s2location" value="{{ user.s2location }}"></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">3</th>
+                        <td><input type="text" class="form-control" name="s3date" id="s3date" value="{{ user.s3date }}"></td>
+                        <td><input type="text" class="form-control" name="s3event" id="s3event" value="{{ user.s3event }}"></td>
+                        <td><input type="text" class="form-control" name="s3location" id="s3location" value="{{ user.s3location }}"></td>   
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+        
+                
+
+                    <div class="text-center">                    
+                        <button class="btn btn-dark col-md-4 my-3" type="submit">Update</button>
+                    </div>
+                
+
+            </form>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,532 @@
+{% extends 'app/base.html' %}
+
+{% block content %}
+
+{% load static %}
+<style>
+  .text-muted {
+    text-transform: capitalize;
+  }
+  .user-section {
+    background-color: transparent;
+  }
+</style>
+
+{% comment %} <li class="breadcrumb-item">
+  <a href="{% url 'Home' %}">
+      <i class="fa-solid fa-house"></i>
+  </a>
+</li>
+
+<li class="breadcrumb-item">
+  <a href="{% url 'profile' %}">
+      <i class="fa fa-user"></i>
+  </a>
+</li> {% endcomment %}
+{% if message %}
+<div class="container-fluid p-0 m-0">
+  <div class="alert-info alert alert-dismissible m-0 text-center" role="alert" >
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+      <span aria-hidden="True">&times;</span>
+    </button>
+     {{ message }}!
+  </div>
+</div>
+<script type="text/javascript">
+    setTimeout(function () {
+      $('.alert').alert('close');
+    }, 4000);
+  </script>
+
+{% endif %}
+
+
+<div class="container">
+    <h3 class="h3">Your Profile</h3>
+  <div class="d-flex justify-content-end">
+    <a class="btn btn-secondary m-5" href="{% url 'editprofile' %}"
+      >Edit Profile</a
+    >
+  </div>
+</div>
+
+<section class="user-section">
+  <div class="container col-sm-12 col-md-6" >
+    <div class="card mb-4" style="width:80% !important;">
+      <div class="card-body" >
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Name</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.firstname }} {{ user.lastname }}
+            </p>
+          </div>
+        </div>
+
+        <!-- <hr />
+
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Middle Name</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0" style="text-transform: capitalize">
+              {{ user.middle_name }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Last Name</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0" style="text-transform: capitalize">
+              {{ user.last_name }}
+            </p>
+          </div>
+        </div> -->
+
+        <hr />
+
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Phone</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.phone }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Email</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.username }}
+            </p>
+          </div>
+        </div>
+
+        
+        <hr />
+
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Phone</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.phone }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Grad Year</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.gradyear }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Position Primary</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.posprimary }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Position Secondary</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.possecondary }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Instagram URL</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.instagram }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Twitter URL</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.twitter }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Facebook URL</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.facebook }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">School</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.school }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">City</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.city }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">NCAA</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.ncaa }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Height</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.height }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Weight</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.weight }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Vertical</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.vertical }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">time40</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.time40 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">gpa</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.gpa }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">actscore</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.actscore }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">classrank</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.classrank }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">satscore</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.satscore }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Highlights URL1</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.url1 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Highlights URL2</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.url2 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Statistics Point1</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.sbp1 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Statistics Point2</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.sbp2 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Statistics Point3</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.sbp3 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Statistics Point4</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.sbp4 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Awards Point1</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.abp1 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Awards Point2</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.abp2 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Awards Point3</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.abp3 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Awards Point4</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.abp4 }}
+            </p>
+          </div>
+        </div>
+
+        <hr />
+        <h4>Coach Message</h4>
+        <div class="container">
+          <p>{{user.coachmessage}}</p>
+        </div>
+          <h4>SCHEDULE</h4>
+        <div class="container">
+          <table class="table">
+            <thead>
+              <tr>
+                <th scope="col">#</th>
+                <th scope="col">Date</th>
+                <th scope="col">Event</th>
+                <th scope="col">Location</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <th scope="row">1</th>
+                <td>{{user.s1date}}</td>
+                <td>{{user.s1event}}</td>
+                <td>{{user.s1location}}</td>
+              </tr>
+              <tr>
+                <th scope="row">2</th>
+                <td>{{user.s2date}}</td>
+                <td>{{user.s2event}}</td>
+                <td>{{user.s2location}}</td>
+              </tr>
+              <tr>
+                <th scope="row">3</th>
+                <td>{{user.s3date}}</td>
+                <td>{{user.s3event}}</td>
+                <td>{{user.s3location}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+
+        {% comment %} <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Email</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">{{ user.username }}</p>
+          </div>
+        </div>
+        <hr /> {% endcomment %}
+        <div class="row">
+          <div class="col-sm-3">
+            <p class="mb-0 text-bold" style="font-weight:bold;">Joined Date</p>
+          </div>
+          <div class="col-sm-9">
+            <p class="text-muted mb-0">
+              {{ user.date_joined|date:"d-m-Y" }}
+            </p>
+          </div>
+        </div>
+        <hr />
+        
+       
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section>
+</section>
+
+
+
+{% endblock content %}
